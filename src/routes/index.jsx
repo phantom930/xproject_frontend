@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 
-import Login from "../views/Login";
+import Login from "../views/login/index";
 
 const MainRoutes = () => {
   return (
