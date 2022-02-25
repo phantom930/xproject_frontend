@@ -4,15 +4,15 @@ import {
   Route
 } from 'react-router-dom';
 
-import Login from "../views/login/index";
+import Login from "../views/login";
+import Dashboard from '../views/main/Dashboard'
 
 const MainRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/dashborad' />
         <Route path='/login' element={<Login />} />
-        <Route path='/' />
+        <Route path='/' element={<Dashboard/>}/>
       </Routes>
     </Router>
   )
