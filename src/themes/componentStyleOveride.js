@@ -14,10 +14,14 @@ const componentStyleOveride = () => {
         }
       }
     },
+    // MuiButton Style Overide
     MuiButton: {
       styleOverrides: {
         root: {
           color: '#fff'
+        },
+        outlined: {
+          borderColor: '#fff',
         }
       }
     },
