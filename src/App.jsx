@@ -4,13 +4,16 @@ import { CssBaseline } from '@mui/material';
 
 import theme from './themes'
 import Routes from "./routes";
+import Web3Provider from './store/web3Provider';
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Routes />
-    </ThemeProvider>
+    <Web3Provider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes />
+      </ThemeProvider>
+    </Web3Provider>
   );
 }
 

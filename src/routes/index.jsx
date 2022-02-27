@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import Login from "../views/login";
-import Dashboard from '../views/main/Dashboard'
+import Dashboard from '../views/dashboard'
 
 const MainRoutes = () => {
   return (

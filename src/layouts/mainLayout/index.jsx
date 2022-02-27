@@ -10,7 +10,7 @@ const MainLayout = (props) => {
   return (
     <Box>
       <Sider menuItems={props.menuItems} collapsed={collapsed} />
-      <Navbar toggleSider={setCollapsed} collapsed={collapsed}/>
+      <Navbar title={props.title} toggleSider={setCollapsed} collapsed={collapsed}/>
       <Box ml={ collapsed ? '80px' : '250px'} p={4}>
         { props.children }  
       </Box>

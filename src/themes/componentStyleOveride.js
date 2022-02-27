@@ -14,27 +14,27 @@ const componentStyleOveride = () => {
         }
       }
     },
+
+    // Button Style Overide
     MuiButton: {
       styleOverrides: {
         root: {
           color: '#fff'
-        }
-      }
-    },
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#000',
-          color: '#fff',
-          borderBottom: '1px solid #ffffff33',
-          borderRadius: '0px',
+        },
+        outlined: {
+          borderColor: '#fff',
+          '&:hover': {
+            borderColor: '#ffffffaa'
+          }
         }
       }
     },
     MuiIconButton: {
       styleOverrides: {
         root: {
-          color: '#fff'
+          color: '#fff',
+          borderWidth: '1px',
+          borderColor: '#fff'
         }
       }
     },
@@ -53,6 +53,28 @@ const componentStyleOveride = () => {
         },
       }
     },
+
+    // Input Style Overide
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          color: '#fff',
+          borderColor: '#fff'
+        }
+      }
+    },
+
+    // Navbar Style Overide
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#000',
+          color: '#fff',
+          borderBottom: '1px solid #ffffff33',
+          borderRadius: '0px',
+        }
+      }
+    },
     MuiSvgIcon: {
       styleOverrides: {
         root: {
@@ -60,18 +82,12 @@ const componentStyleOveride = () => {
         }
       }
     },
+
+    // Table Style Overide
     MuiTable: {
       styleOverrides: {
         root: {
 
-        }
-      }
-    },
-    MuiTableCell: {
-      styleOverrides: {
-        root: {
-          color: '#fff', 
-          borderColor: '#ffffff22'
         }
       }
     },
@@ -84,7 +100,15 @@ const componentStyleOveride = () => {
           }
         }
       }
-    }
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          color: '#fff', 
+          borderColor: '#ffffff22'
+        }
+      }
+    },
   };
 }
 
