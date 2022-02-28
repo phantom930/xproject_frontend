@@ -19,13 +19,27 @@ const componentStyleOveride = () => {
     MuiButton: {
       styleOverrides: {
         root: {
-          color: '#fff'
+          color: '#fff',
+          '&.Mui-disabled': {
+            color: '#ffffff44',
+            borderColor: '#ffffff44'
+          }
         },
         outlined: {
           borderColor: '#fff',
           '&:hover': {
             borderColor: '#ffffffaa'
           }
+        }
+      }
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#000',
+          color: '#fff',
+          borderBottom: '1px solid #ffffff33',
+          borderRadius: '0px',
         }
       }
     },
@@ -109,6 +123,20 @@ const componentStyleOveride = () => {
         }
       }
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          color: '#fff'
+        }
+      }
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          color: '#fff'
+        }
+      }
+    }
   };
 }
 
