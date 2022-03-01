@@ -5,7 +5,6 @@ import { faShopify, faDochub } from '@fortawesome/free-brands-svg-icons';
 
 import CampaignTalbe from './CampaignsTable';
 import DashboardStatics from '../../components/DashboardStatics';
-import MainLayout from '../../layouts/mainLayout';
 
 const sider = [
   { text: 'Dashboard', url: '/', icon: <FontAwesomeIcon color='#fff' icon={faChartLine}/> },
@@ -16,7 +15,7 @@ const sider = [
 
 const MainPage = (props) => {
   return (
-    <MainLayout menuItems={sider}>
+    <>
       <Grid container spacing={3}>
         <Grid item lg={3} md={6} xs={12}>
           <DashboardStatics title='Balance' content='$2,536'
@@ -55,7 +54,7 @@ const MainPage = (props) => {
           <CampaignTalbe />
         </Grid>
       </Grid>
-    </MainLayout>
+    </>
   );
 };
 

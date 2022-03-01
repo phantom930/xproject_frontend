@@ -4,17 +4,15 @@ import {
   Route
 } from 'react-router-dom';
 
-import Login from "@views/login";
 import Dashboard from "@views/dashboard";
+import Robotics from "@views/robotics";
 
 const MainRoutes = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Dashboard/>} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path='/' element={<Dashboard />} />
+      <Route path='/robotics' element={<Robotics />} />
+    </Routes>
   )
 };
 
