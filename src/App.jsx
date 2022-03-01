@@ -4,8 +4,7 @@ import { CssBaseline } from '@mui/material';
 
 import Web3Provider from '@store/web3Provider';
 import theme from "@themes";
-import Routes from "@routes";
-import store from "@store";
+import Routes from "@routes/index.js";
 
 const App = () => {
   

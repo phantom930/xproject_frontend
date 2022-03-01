@@ -5,14 +5,14 @@ import {
 } from 'react-router-dom';
 
 import Login from "@views/login";
-import Dashboard from "@views/dashboard";
+import MainView from "@views/index.jsx";
 
 const MainRoutes = () => {
   return (
     <Router>
       <Routes>
         <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Dashboard/>} />
+        <Route path='/*' element={<MainView />} />
       </Routes>
     </Router>
   )
