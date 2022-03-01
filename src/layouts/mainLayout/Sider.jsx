@@ -1,6 +1,7 @@
 import { BrowserView, MobileView } from 'react-device-detect';
+import { Link } from 'react-router-dom'
 import { Box, Button, Typography } from '@mui/material';
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
 const Sider = (props) => {
   return (
@@ -15,7 +16,7 @@ const Sider = (props) => {
             { props.collapsed ? 
               props.menuItems.map((menuItem, index) => {
                 return (
-                  <ListItem sx={{ px: 0 }} alignItems='center' key={index}>
+                  <ListItem sx={{ px: 0 }} alignItems='center' key={index} component={Link} to={menuItem.url}>
                     <ListItemButton selected={index === 0} sx={{pl: '25px', py: '12px'}}>
                       <ListItemIcon>
                         { menuItem.icon }
@@ -26,7 +27,7 @@ const Sider = (props) => {
               }) : 
               props.menuItems.map((menuItem, index) => {
                 return (
-                  <ListItem sx={{ px: 0 }} key={index}>
+                  <ListItem sx={{ px: 0 }} key={index} component={Link} to={menuItem.url}>
                     <ListItemButton selected={ index === 0 }>
                       <ListItemIcon>
                         { menuItem.icon }
