@@ -12,7 +12,7 @@ const Sider = (props) => {
         { props.collapsed ? 
           props.menuItems.map((menuItem, index) => {
             return (
-              <ListItem sx={{ px: 0 }} alignItems='center'>
+              <ListItem sx={{ px: 0 }} alignItems='center' key={index}>
                 <ListItemButton selected={index === 0} sx={{pl: '25px', py: '12px'}}>
                   <ListItemIcon>
                     { menuItem.icon }
@@ -23,7 +23,7 @@ const Sider = (props) => {
           }) : 
           props.menuItems.map((menuItem, index) => {
             return (
-              <ListItem sx={{ px: 0 }}>
+              <ListItem sx={{ px: 0 }} key={index}>
                 <ListItemButton selected={ index === 0 }>
                   <ListItemIcon>
                     { menuItem.icon }

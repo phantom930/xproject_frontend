@@ -6,7 +6,7 @@ const componentStyleOveride = () => {
       },
       styleOverrides: {
         root: {
-          backgroundColor: '#ffffff11',
+          backgroundColor: '#111111',
           borderRadius: '10px',
           border: 'none',
           color: '#fff',
@@ -16,19 +16,42 @@ const componentStyleOveride = () => {
     },
 
     // Button Style Overide
-    MuiButton: {
+    MuiButtonBase: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: '#222 !important'
+          }
+        }
+      }
+    },
+  MuiButton: {
       styleOverrides: {
         root: {
           color: '#fff',
           '&.Mui-disabled': {
             color: '#ffffff44',
             borderColor: '#ffffff44'
+          },
+          '&.MuiButton-text:hover': {
+            backgroundColor: '#111'
           }
         },
         outlined: {
           borderColor: '#fff',
           '&:hover': {
             borderColor: '#ffffffaa'
+          }
+        }
+      }
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: '#fff',
+          '&.Mui-disabled': {
+            color: '#ffffff44',
+            borderColor: '#ffffff44'
           }
         }
       }
@@ -68,12 +91,32 @@ const componentStyleOveride = () => {
       }
     },
 
+    MuiMenu: {
+      styleOverrides: {
+        root: {
+          '& .MuiPaper-root': {
+            padding: '0px !important',
+            backgroundColor: '#222'
+          }
+        }
+      }
+    },
+
     // Input Style Overide
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
           color: '#fff',
-          borderColor: '#fff'
+          borderColor: '#fff',
+          '& svg': {
+            color: '#fff'
+          },
+          '& fieldset': {            // - The <fieldset> inside the Input-root
+            borderColor: '#fff',   // - Set the Input border
+          },
+          '&:hover fieldset': {            // - The <fieldset> inside the Input-root
+            borderColor: '#aaa !important',   // - Set the Input border
+          },
         }
       }
     },
@@ -109,8 +152,9 @@ const componentStyleOveride = () => {
       styleOverrides: {
         root: {
           backgroundColor: '#ffffff22',
-          '&.MuiTableCell-root': {
-            color: '#ffffff99'
+          '& .MuiTableCell-root': {
+            color: '#ffffff99',
+            textTransform: 'capitalize'
           }
         }
       }
@@ -136,8 +180,8 @@ const componentStyleOveride = () => {
           color: '#fff'
         }
       }
-    }
-  };
+    },
+  }
 }
 
 export default componentStyleOveride;

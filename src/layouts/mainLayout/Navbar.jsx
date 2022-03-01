@@ -1,3 +1,5 @@
+import { BrowserView, MobileView } from 'react-device-detect';
+
 import { Link } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import {
@@ -7,12 +9,13 @@ import {
   IconButton,
   Typography,
   Avatar,
-  Button
+  Button,
+  Stack
 } from '@mui/material';
-import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
-import MenuIcon from '@mui/icons-material/Menu';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import { ArrowLeft, ArrowRight } from '@mui/icons-material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAnglesLeft, faAnglesRight, faBars, faGear } from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
+
 
 const Navbar = (props) => {
   const handleToggleSider = () => {
@@ -20,57 +23,111 @@ const Navbar = (props) => {
   }
 
   return (
-    <Box sx={{ flexGrow: 1, ml: props.collapsed ? '80px' : '250px' }}>
-      <AppBar position="static" sx={{ pl:0 }}>
-        <Toolbar>
-          <IconButton size='large' onClick={handleToggleSider}>
-            {props.collapsed ? <ArrowRight /> : <ArrowLeft /> }
-          </IconButton>
-          <Typography 
-            variant="h5"
-            component="div"
-          >
-            Dashboard
-          </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: 'flex' }}>
-            <IconButton size='large'>
-              <NotificationsOutlinedIcon />
-            </IconButton>
-            <IconButton size='large'>
-              <SettingsOutlinedIcon />
-            </IconButton>
-            <IconButton size='large'>
-              <MenuIcon />
-            </IconButton>
-            {
-              sessionStorage.account
-              ?
-                <Button variant='outlined'
-                  sx={{ my: 2, width: '100%', p: 2 }}
-                  color='primary'
-                >{ sessionStorage.account }</Button>
-              :
-              <Button variant='outlined'
-                sx={{ my: 2, width: '100%', p: 2 }}
-                color='primary'
-                component={NavLink}
-                to="/login">Sign In</Button>    
-            }
-            {/*
-            <Avatar
-              sx={{ bgcolor: '#adadec' }}
-              alt="Remy Sharp"
-              src="/broken-image.jpg"
-            >
-              
-            </Avatar>
-            */
-            }
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <>
+      <BrowserView>
+        <Box sx={{ flexGrow: 1, ml: props.collapsed ? '80px' : '250px' }}>
+          <AppBar position="static" sx={{ pl:0 }}>
+            <Toolbar>
+              <IconButton size='large' onClick={handleToggleSider}>
+                {props.collapsed ? <FontAwesomeIcon fontSize='0.9rem' color='#fff' icon={faAnglesRight} /> : <FontAwesomeIcon fontSize='0.9rem' color='#fff' icon={faAnglesLeft} /> }
+              </IconButton>
+              <Typography 
+                variant="h5"
+                component="div"
+              >
+                Dashboard
+              </Typography>
+              <Box sx={{ flexGrow: 1 }} />
+              <Box sx={{ display: 'flex' }}>
+                <IconButton size='large'>
+                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faBell} />
+                </IconButton>
+                <IconButton size='large'>
+                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faGear} />
+                </IconButton>
+                <IconButton size='large'>
+                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faBars} />
+                </IconButton>
+                {
+                  sessionStorage.account
+                  ?
+                    <Button variant='text'
+                      sx={{ ml: 2, width: '100%', p: 2 }}
+                      color='primary'
+                    >{ sessionStorage.account }</Button>
+                  :
+                  <Button variant='text'
+                    sx={{ ml: 2, width: '100%', }}
+                    color='primary'
+                    component={NavLink}
+                    to="/login">Sign In</Button>    
+                }
+                {/*
+                <Avatar
+                  sx={{ bgcolor: '#adadec' }}
+                  alt="Remy Sharp"
+                  src="/broken-image.jpg"
+                >
+                  
+                </Avatar>
+                */
+                }
+              </Box>
+            </Toolbar>
+          </AppBar>
+        </Box>
+      </BrowserView>
+      <MobileView>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="fixed" sx={{ top: '0px' }}>
+            <Toolbar>
+              <Typography 
+                variant="h5"
+                component="div"
+              >
+                Dashboard
+              </Typography>
+              <Box sx={{ flexGrow: 1 }} />
+              <Box sx={{ display: 'flex' }}>
+                <IconButton size='large'>
+                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faBell} />
+                </IconButton>
+                <IconButton size='large'>
+                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faGear} />
+                </IconButton>
+                <IconButton size='large'>
+                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faBars} />
+                </IconButton>
+                {
+                  sessionStorage.account
+                  ?
+                    <Button variant='text'
+                      sx={{ ml: 2, width: '100%', p: 2 }}
+                      color='primary'
+                    >{ sessionStorage.account }</Button>
+                  :
+                  <Button variant='text'
+                    sx={{ ml: 2 }}
+                    color='primary'
+                    component={NavLink}
+                    to="/login">Sign In</Button>    
+                }
+                {/*
+                <Avatar
+                  sx={{ bgcolor: '#adadec' }}
+                  alt="Remy Sharp"
+                  src="/broken-image.jpg"
+                >
+                  
+                </Avatar>
+                */
+                }
+              </Box>
+            </Toolbar>
+          </AppBar>
+        </Box>
+      </MobileView>
+    </>
   );
 };
 
