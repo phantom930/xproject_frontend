@@ -7,7 +7,7 @@ import {
 import Dashboard from "@views/dashboard";
 import Robotics from "@views/robotics";
 
-const MainRoutes = () => {
+const ViewRoutes = () => {
   return (
     <Routes>
       <Route path='/' element={<Dashboard />} />
@@ -16,4 +16,4 @@ const MainRoutes = () => {
   )
 };
 
-export default MainRoutes;
+export default ViewRoutes;
