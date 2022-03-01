@@ -28,7 +28,7 @@ const Navbar = (props) => {
         <Box sx={{ flexGrow: 1, ml: props.collapsed ? '80px' : '250px' }}>
           <AppBar position="static" sx={{ pl:0 }}>
             <Toolbar>
-              <IconButton size='large' onClick={handleToggleSider}>
+              <IconButton size='large' onClick={handleToggleSider} sx={{ mr: 1 }}>
                 {props.collapsed ? <FontAwesomeIcon fontSize='0.9rem' color='#fff' icon={faAnglesRight} /> : <FontAwesomeIcon fontSize='0.9rem' color='#fff' icon={faAnglesLeft} /> }
               </IconButton>
               <Typography 
@@ -40,13 +40,13 @@ const Navbar = (props) => {
               <Box sx={{ flexGrow: 1 }} />
               <Box sx={{ display: 'flex' }}>
                 <IconButton size='large'>
-                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faBell} />
+                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' width='20px' icon={faBell} />
                 </IconButton>
                 <IconButton size='large'>
-                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faGear} />
+                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' width='20px' icon={faGear} />
                 </IconButton>
                 <IconButton size='large'>
-                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faBars} />
+                  <FontAwesomeIcon color='#fff' fontSize='1.2rem' width='20px' icon={faBars} />
                 </IconButton>
                 {
                   sessionStorage.account
@@ -59,8 +59,10 @@ const Navbar = (props) => {
                   <Button variant='text'
                     sx={{ ml: 2, width: '100%', }}
                     color='primary'
-                    component={NavLink}
-                    to="/login">Sign In</Button>    
+                    component={NavLink} 
+                    to="/login"
+                    size='large'
+                  >Sign In</Button>    
                 }
                 {/*
                 <Avatar

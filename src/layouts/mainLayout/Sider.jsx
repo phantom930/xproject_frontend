@@ -51,7 +51,7 @@ const Sider = (props) => {
             { 
               props.menuItems.map((menuItem, index) => {
                 return (
-                  <ListItem sx={{ px: 0 }} key={index}>
+                  <ListItem sx={{ px: 0 }} key={index} component={Link} to={menuItem.url}>
                     <ListItemButton selected={ index === 0 }>
                       <ListItemText primary={ menuItem.text } />
                       <ListItemIcon sx={{ minWidth: '0px' }}>

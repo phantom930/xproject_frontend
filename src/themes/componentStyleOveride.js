@@ -112,7 +112,7 @@ const componentStyleOveride = () => {
             color: '#fff'
           },
           '& fieldset': {            // - The <fieldset> inside the Input-root
-            borderColor: '#fff',   // - Set the Input border
+            borderColor: '#aaa',   // - Set the Input border
           },
           '&:hover fieldset': {            // - The <fieldset> inside the Input-root
             borderColor: '#aaa !important',   // - Set the Input border

@@ -51,15 +51,15 @@ export default function BasicTable() {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            sx={{ width: '100px', mr: 2 }}
+            sx={{  mr: 2 }}
             size='small'
             value={day}
             // label="Age"
             onChange={handleChangeDay}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={10}>Today</MenuItem>
+            <MenuItem value={20}>Yesterday</MenuItem>
+            <MenuItem value={30}>2 Days Before</MenuItem>
           </Select>
         </FormControl>
       </Stack>
@@ -71,7 +71,7 @@ export default function BasicTable() {
             <TableCell>Progress</TableCell>
             <TableCell>Due Date</TableCell>
             <TableCell>Type</TableCell>
-            <TableCell>Action</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -84,8 +84,8 @@ export default function BasicTable() {
               <TableCell> { status[row.status] } </TableCell>
               <TableCell> { row.progress + ' %' } </TableCell>
               <TableCell> { row.dueDate } </TableCell>
-              <TableCell align='center'> { type[row.type] } </TableCell>
-              <TableCell>
+              <TableCell> { type[row.type] } </TableCell>
+              <TableCell align='right'>
                 <IconButton size='large'>
                   <FontAwesomeIcon color='#fff' fontSize='1rem' width='18px' icon={faEllipsisVertical} />
                 </IconButton>
