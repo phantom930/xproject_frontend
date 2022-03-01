@@ -43,7 +43,7 @@ const Sider = (props) => {
       <MobileView>
         <Box 
           width='100%' height='100%'
-          sx={{ backgroundColor: '#000' }}
+          sx={{ backgroundColor: '#000', mt: '105px' }}
         >
           {/* <Typography variant='h2' textAlign='center' my={3}>X</Typography> */}
           <List>

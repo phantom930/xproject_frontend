@@ -79,7 +79,7 @@ const Navbar = (props) => {
       </BrowserView>
       <MobileView>
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="fixed" sx={{ top: '0px' }}>
+          <AppBar position="fixed">
             <Toolbar>
               <Typography 
                 variant="h5"
