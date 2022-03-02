@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import { Grid, Box } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartLine, faBolt } from '@fortawesome/free-solid-svg-icons';
 import { faShopify, faDochub } from '@fortawesome/free-brands-svg-icons';
 
-import MainRoutes from '@routes/mainRoutes';
+import UserRoutes from '@routes/userRoutes';
 import MainLayout from '@layouts/mainLayout';
 
 const sider = [
@@ -14,9 +15,11 @@ const sider = [
 ];
 
 const MainPage = (props) => {
+  const [activeSider, setActiveSider] = useState(0);
+
   return (
-    <MainLayout menuItems={sider}>
-      <MainRoutes />
+    <MainLayout menuItems={sider} active={activeSider}>
+      <UserRoutes />
     </MainLayout>
   );
 };
