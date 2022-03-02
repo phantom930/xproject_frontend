@@ -9,14 +9,28 @@ import Logo from '../../assets/img/logo.png';
 const InviteCode = () => {
   const [codes, setCodes] = useState([null, null, null, null, null, null]);
   const [curIndx, setCurIndx] = useState(0);
+
+  console.log(codes);
   
   const handleInputCode = (number) => {
+    if (curIndx > 5) return;
     setCodes(codes.map((code, index) => {
       return index === curIndx ? number : code;
     }));
     setCurIndx(curIndx + 1);
   }
 
+  const handleClear = () => {
+    if (curIndx === 0) return;
+    setCodes(codes.map((code, index) => {
+      return index === curIndx - 1 ? null : code;
+    }));
+    setCurIndx(curIndx - 1);
+  }
+
+  const handleGo = () => {
+    return;
+  }
 
   return (
     <Box width={400} sx={{ m: 'auto', textAlign: 'center' }}>
@@ -42,46 +56,46 @@ const InviteCode = () => {
           <Box>
             <Grid container spacing={2} mt={1}>
               <Grid item xs={4}>
-                <CodeButton number={1} sub={'111'} action={ handleInputCode }/>
+                <CodeButton number={1} onClick={ e => handleInputCode(1) }/>
               </Grid>
               <Grid item xs={4}>
-                <CodeButton number={2} sub={'ABC'} />
+                <CodeButton number={2} sub={'ABC'} onClick={ e => handleInputCode(2) }/>
               </Grid>
               <Grid item xs={4}>
-                <CodeButton number={3} sub={'DEF'} />
-              </Grid>
-            </Grid>
-            <Grid container spacing={2} mt={1}>
-              <Grid item xs={4}>
-                <CodeButton number={4} sub={'GHI'} />
-              </Grid>
-              <Grid item xs={4}>
-                <CodeButton number={5} sub={'JKL'} />
-              </Grid>
-              <Grid item xs={4}>
-                <CodeButton number={6} sub={'MNO'} />
+                <CodeButton number={3} sub={'DEF'} onClick={ e => handleInputCode(3) }/>
               </Grid>
             </Grid>
             <Grid container spacing={2} mt={1}>
               <Grid item xs={4}>
-                <CodeButton number={7} sub={'PQRS'} />
+                <CodeButton number={4} sub={'GHI'} onClick={ e => handleInputCode(4) }/>
               </Grid>
               <Grid item xs={4}>
-                <CodeButton number={8} sub={'TUV'} />
+                <CodeButton number={5} sub={'JKL'} onClick={ e => handleInputCode(5) }/>
               </Grid>
               <Grid item xs={4}>
-                <CodeButton number={9} sub={'WXYZ'} />
+                <CodeButton number={6} sub={'MNO'} onClick={ e => handleInputCode(6) }/>
               </Grid>
             </Grid>
             <Grid container spacing={2} mt={1}>
               <Grid item xs={4}>
-                <CodeButton number={'X'} sub={'CLEAR'} />
+                <CodeButton number={7} sub={'PQRS'} onClick={ e => handleInputCode(7) }/>
               </Grid>
               <Grid item xs={4}>
-                <CodeButton number={0} sub={'.'} />
+                <CodeButton number={8} sub={'TUV'} onClick={ e => handleInputCode(8) }/>
               </Grid>
               <Grid item xs={4}>
-                <CodeButton number={<FontAwesomeIcon icon={faKey}/>} sub={'GO!'} />
+                <CodeButton number={9} sub={'WXYZ'} onClick={ e => handleInputCode(9) }/>
+              </Grid>
+            </Grid>
+            <Grid container spacing={2} mt={1}>
+              <Grid item xs={4}>
+                <CodeButton number={'X'} sub={'CLEAR'} onClick={ handleClear } />
+              </Grid>
+              <Grid item xs={4}>
+                <CodeButton number={0} sub={'.'} onClick={ e => handleInputCode(0) }/>
+              </Grid>
+              <Grid item xs={4}>
+                <CodeButton number={<FontAwesomeIcon icon={faKey}/>} sub={'GO!'} onClick={ handleGo } />
               </Grid>
             </Grid>
           </Box>
