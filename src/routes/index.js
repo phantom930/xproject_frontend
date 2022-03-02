@@ -5,7 +5,9 @@ import {
 } from 'react-router-dom';
 
 import Login from "@views/login";
-import MainView from "@views/index.jsx";
+import InviteCode from "@views/inviteCode";
+import MainView from "@views";
+
 
 const MainRoutes = () => {
   return (
@@ -13,6 +15,7 @@ const MainRoutes = () => {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/*' element={<MainView />} />
+        <Route path='/' element={<InviteCode />} />
       </Routes>
     </Router>
   )

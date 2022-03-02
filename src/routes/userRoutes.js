@@ -12,7 +12,7 @@ import PR from "@views/pr";
 const UserRoutes = () => {
   return (
     <Routes>
-      <Route path='/' element={<Dashboard />} />
+      <Route path='/dashboard' element={<Dashboard />} />
       <Route path='/robotics' element={<Robotics />} />
       <Route path='/dtc_brand' element={<DTCBand />} />
       <Route path='/pr' element={<PR />} />
