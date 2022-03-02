@@ -17,7 +17,7 @@ const Sider = (props) => {
               props.menuItems.map((menuItem, index) => {
                 return (
                   <ListItem sx={{ px: 0 }} alignItems='center' key={index} component={Link} to={menuItem.url}>
-                    <ListItemButton selected={index === 0} sx={{pl: '25px', py: '12px'}}>
+                    <ListItemButton selected={ index === 0 } sx={{pl: '25px', py: '12px'}}>
                       <ListItemIcon>
                         { menuItem.icon }
                       </ListItemIcon>

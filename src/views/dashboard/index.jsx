@@ -13,7 +13,7 @@ const sider = [
   { text: 'PR', url: '/pr', icon: <FontAwesomeIcon color='#fff' icon={faDochub}/> },
 ];
 
-const MainPage = (props) => {
+const Dashboard = (props) => {
   return (
     <>
       <Grid container spacing={3}>
@@ -58,4 +58,4 @@ const MainPage = (props) => {
   );
 };
 
-export default MainPage;
+export default Dashboard;
