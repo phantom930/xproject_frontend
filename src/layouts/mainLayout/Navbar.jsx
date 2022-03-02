@@ -1,25 +1,28 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { BrowserView, MobileView } from 'react-device-detect';
-
-import { Link } from 'react-router-dom';
-import { NavLink } from "react-router-dom";
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  Avatar,
-  Button,
-  Stack
-} from '@mui/material';
+import { NavLink, useNavigate } from "react-router-dom";
+import { AppBar, Box, Toolbar, IconButton, Typography, Avatar, Button, Menu, MenuItem } from '@mui/material';
+import LogoutSharpIcon from '@mui/icons-material/LogoutSharp';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesLeft, faAnglesRight, faBars, faGear } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 
+import { destoryCredentials } from "@store/slices/auth.slice";
 
 const Navbar = (props) => {
+  const navigate = useNavigate();
+  const user = useSelector(state => state.auth.user);
+  const dispatch = useDispatch();
+
   const handleToggleSider = () => {
     props.toggleSider(!props.collapsed);
+  }
+
+  const signOut = () => {
+    sessionStorage.clear();
+    dispatch(destoryCredentials());
+    navigate('/auth');
   }
 
   return (
@@ -49,18 +52,28 @@ const Navbar = (props) => {
                   <FontAwesomeIcon color='#fff' fontSize='1.2rem' width='20px' icon={faBars} />
                 </IconButton>
                 {
-                  sessionStorage.account
+                  user && user.wallet_address
                   ?
-                    <Button variant='text'
-                      sx={{ ml: 2, width: '100%', p: 2 }}
-                      color='primary'
-                    >{ sessionStorage.account }</Button>
+                  <>
+                    <PopupState variant='popover' popupId='demo-popup-menu'>
+                      {(popupState) => (
+                        <>
+                          <Button variant='text' {...bindTrigger(popupState)}>
+                            { user.wallet_address }
+                          </Button>
+                          <Menu {...bindMenu(popupState)} anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}>
+                            <MenuItem onClick={signOut}><LogoutSharpIcon />Sign Out</MenuItem>
+                          </Menu>
+                        </>
+                      )}
+                    </PopupState>
+                  </>
                   :
                   <Button variant='text'
                     sx={{ ml: 2, width: '100%', }}
                     color='primary'
                     component={NavLink} 
-                    to="/login"
+                    to="/auth"
                     size='large'
                   >Sign In</Button>    
                 }
@@ -101,18 +114,18 @@ const Navbar = (props) => {
                   <FontAwesomeIcon color='#fff' fontSize='1.2rem' icon={faBars} />
                 </IconButton>
                 {
-                  sessionStorage.account
+                  user && user.wallet_address
                   ?
                     <Button variant='text'
                       sx={{ ml: 2, width: '100%', p: 2 }}
                       color='primary'
-                    >{ sessionStorage.account }</Button>
+                    >{ user.wallet_address }</Button>
                   :
                   <Button variant='text'
                     sx={{ ml: 2 }}
                     color='primary'
                     component={NavLink}
-                    to="/login">Sign In</Button>    
+                    to="/auth">Sign In</Button>    
                 }
                 {/*
                 <Avatar

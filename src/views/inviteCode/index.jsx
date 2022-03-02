@@ -1,16 +1,16 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Box, Button, Card, CardContent, Grid, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 
 import CodeButton from './CodeButton';
-import Logo from '../../assets/img/logo.png';
+import Logo from '@assets/img/logo.png';
 
 const InviteCode = () => {
   const [codes, setCodes] = useState([null, null, null, null, null, null]);
   const [curIndx, setCurIndx] = useState(0);
-
-  console.log(codes);
+  const navigate = useNavigate();
   
   const handleInputCode = (number) => {
     if (curIndx > 5) return;
@@ -29,6 +29,10 @@ const InviteCode = () => {
   }
 
   const handleGo = () => {
+    const isValid = codes.every(code => code != null);
+    if (isValid)
+      navigate('/auth');
+
     return;
   }
 

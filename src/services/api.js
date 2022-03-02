@@ -8,7 +8,7 @@ let axiosInstance = axios.create({
 });
 
 export const setAuthToken = token => {
-    axiosInstance.defaults.common['Authorization'] = token;
+    axiosInstance.defaults.headers.common['Authorization'] = token;
 };
 
 export const sendRequest = ({ url, method, data }) => {

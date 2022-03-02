@@ -1,9 +1,9 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 
 const Sider = (props) => {
   return (
-    <Box 
+    <Box
       width={props.collapsed? '80px' : '250px'} height='100%'
       sx={{ position: 'fixed', zIndex: '1000000', top: 0, left: 0, backgroundColor: '#000' }}
     >
@@ -12,25 +12,29 @@ const Sider = (props) => {
         { props.collapsed ? 
           props.menuItems.map((menuItem, index) => {
             return (
-              <ListItem sx={{ px: 0 }} alignItems='center' key={index}>
-                <ListItemButton selected={index === 0} sx={{pl: '25px', py: '12px'}}>
-                  <ListItemIcon>
-                    { menuItem.icon }
-                  </ListItemIcon>
-                </ListItemButton>
-              </ListItem>
+              <Link href="/admin/users" key={index} underline="none">
+                <ListItem sx={{ px: 0 }} alignItems='center'>
+                  <ListItemButton selected={index === 0} sx={{pl: '25px', py: '12px'}}>
+                    <ListItemIcon>
+                      { menuItem.icon }
+                    </ListItemIcon>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             );
           }) : 
           props.menuItems.map((menuItem, index) => {
             return (
-              <ListItem sx={{ px: 0 }} key={index}>
-                <ListItemButton selected={ index === 0 }>
-                  <ListItemIcon>
-                    { menuItem.icon }
-                  </ListItemIcon>
-                  <ListItemText primary={ menuItem.text } />
-                </ListItemButton>
-              </ListItem>
+              <Link href="/admin/users" key={index} underline="none">
+                <ListItem sx={{ px: 0 }}>
+                  <ListItemButton selected={ index === 0 }>
+                    <ListItemIcon>
+                      { menuItem.icon }
+                    </ListItemIcon>
+                    <ListItemText primary={ menuItem.text } />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             );
           })
         }
